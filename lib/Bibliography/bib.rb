@@ -1,7 +1,7 @@
 
 class Bibliography
     include Comparable
-    attr_reader :autor, :titulo, :serie, :editorial, :edicion, :fecha, :isbn
+    attr_accessor :autor, :titulo, :serie, :editorial, :edicion, :fecha, :isbn
     def initialize (*args)
         if args.length == 7
             raise unless args[0].is_a? Array
