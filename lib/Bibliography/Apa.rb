@@ -9,7 +9,7 @@ class Apa < Lista
         a=j.split
         j=a.insert(0,a.delete_at(1))
         j=j.join(" ")
-        nuevoautor.insert(j)
+        nuevoautor.push(j)
       end
       nodes[i].autor=nuevoautor
     end
