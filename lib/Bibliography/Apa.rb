@@ -13,6 +13,15 @@ class Apa < Lista
       end
       nodes[i].autor=nuevoautor
     end
+    
+    for i in 0..nodes.length-1 do
+      a=nodes[i].titulo.split(" ")
+      for j in 0..a.length-1 do
+        a[j]=a[j].capitalize
+      end
+      a=a.join(" ")
+      nodes[i].titulo=a
+    end
     for i in nodes do
        for j in nodes do
         if i == j
