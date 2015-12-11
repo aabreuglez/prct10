@@ -29,6 +29,7 @@ describe Apa do
     
     it "Existe una lista APA" do
         expect(@apa1.cabeza).to_not be nil
+        
     end
     
     it "El nombre se invierte con el apellido" do
