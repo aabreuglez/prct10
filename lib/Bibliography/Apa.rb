@@ -13,6 +13,10 @@ class Apa < Lista
       end
       nodes[i].autor=nuevoautor
     end
+    nodes=nodes.sort
+    puts nodes[1]
+    puts "=========="
+
     for i in 0..nodes.length-1 do
       nodes[i]=Node.new(nodes[i],nil,nil)
     end
@@ -98,16 +102,21 @@ class Apa < Lista
               #"StoneCraft Wolf (5 mayor 1997) M. A vindication of the rights of women, [en línea]. New York: .[1996]")
       }
       devolver=""
-      aux = @cabeza
+      aux = @cola
       while aux != nil do
+        puts "Estoy aqui por "
         if aux.value.instance_of? Libro
           devolver+=book.call(aux.value)
+          devolver+='\n'
         elsif aux.value.instance_of? ArtRev
           devolver+=art.call(aux.value)
+          devolver+='\n'
         elsif aux.value.instance_of? ArtPer
           devolver += per.call(aux.value)
+          devolver+='\n'
         elsif aux.value.instance_of? Epub
           devolver += kindle.call(aux.value)
+          devolver+='\n'
         end
         aux = aux.next
       

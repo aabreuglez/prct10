@@ -92,7 +92,7 @@ class Bibliography
     end
     
     def <=>(other)
-      raise unless other.instance_of? Bibliography
+      raise unless other.kind_of? Bibliography
       if (@autor!=other.autor)
           return @autor <=> other.autor
       elsif (@fecha != other.fecha)
