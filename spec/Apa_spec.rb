@@ -13,12 +13,15 @@ describe Apa do
       @b6 = Epub.new(["Wolf StoneCraft"],"M. A vindication of the rights of women","en línea","New York",1996,"5 mayo 1997","Disponible")
       @b7 = Libro.new(['Carlos Ruiz','Haruki Murakami'],'La Sombra del Viento','','Planeta',9,'10 de Diciembre 2011',[9788408079545])
       #@b5 = ArtRev.new()
+      @b8 = Libro.new(['Gum Zapato'],'A','','A',0,'2011',[1234567891012])
+      @b9 = Libro.new(['Haruki Murakami'],'B','','B',0,'2013',[1234567891012])
       @apa1 = Apa.new([@b1,@b2])
       @apa2 = Apa.new([@b3])
       @apa3 = Apa.new([@b4])
       @apa4 = Apa.new([@b5])
       @apa5 = Apa.new([@b6])
       @apa6 = Apa.new([@b7])
+      @apa7 = Apa.new([@b8,@b9])
     end
     
     it "Existe una lista APA" do
@@ -46,6 +49,10 @@ describe Apa do
     end
     
     it "Los autores se muestran con &" do
-      expect(@apa6.to_s.split("(").at(0)).to eq("Ruiz Carlos & Murakami Haruki ")
+      expect(@apa6.to_s.split("(").at(0)).to eq("Murakami Haruki & Ruiz Carlos ")
+    end
+    
+    it "Los autores se ordenan por apellido " do
+      expect(@apa7.to_s.split("(").at(0)).to eq("Murakami Haruki & Zapato Gum ")
     end
 end
