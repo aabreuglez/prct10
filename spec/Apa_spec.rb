@@ -85,4 +85,8 @@ describe Apa do
       expect(@apa10.to_s.split('\n').at(1).split("(").at(1).split(")").at(0)).to eq("2013B")
 
     end
+    
+    it "Se capializan los titulos" do
+      expect(@apa1.pop_back.titulo).to eq("La Sombra Del Viento")
+    end
 end
