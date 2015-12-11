@@ -19,6 +19,8 @@ describe Apa do
       @b11 = Libro.new(['Haruki Murakami','Carlos Ruiz'],'B','','B',0,'2013',[1234567891012])
       @b12 = Libro.new(['Haruki Murakami'],'B','','B',0,'2013',[1234567891012])
       @b13 = Libro.new(['Haruki Murakami'],'B','','B',0,'2015',[1234567891012])
+      @b15 = Libro.new(['Haruki Murakami'],'B','','B',0,'2013',[1234567891012])
+      @b14 = Libro.new(['Haruki Murakami'],'C','','C',0,'2013',[1234567891012])
       @apa1 = Apa.new([@b1,@b2])
       @apa2 = Apa.new([@b3])
       @apa3 = Apa.new([@b4])
@@ -28,6 +30,7 @@ describe Apa do
       @apa7 = Apa.new([@b8,@b9])
       @apa8 = Apa.new([@b11,@b10])
       @apa9 = Apa.new([@b13,@b12])
+      @apa10 = Apa.new([@b15,@b14])
     end
     
     it "Existe una lista APA" do
@@ -74,6 +77,12 @@ describe Apa do
     it "Se muestran primero las publicaciones antiguas del mismo autor " do
       expect(@apa9.to_s.split('\n').at(0).split("(").at(1).split(")").at(0)).to eq("2013")
       expect(@apa9.to_s.split('\n').at(1).split("(").at(1).split(")").at(0)).to eq("2015")
+
+    end
+    
+    it "Se ponen sufijos a los años en el caso de mismo autor y año" do
+      expect(@apa10.to_s.split('\n').at(0).split("(").at(1).split(")").at(0)).to eq("2013A")
+      expect(@apa10.to_s.split('\n').at(1).split("(").at(1).split(")").at(0)).to eq("2013B")
 
     end
 end

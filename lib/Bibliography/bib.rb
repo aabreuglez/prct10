@@ -95,10 +95,8 @@ class Bibliography
       raise unless other.kind_of? Bibliography
       if (@autor!=other.autor)
           return @autor <=> other.autor
-      elsif (@fecha != other.fecha)
-            return @fecha <=> other.fecha
-      else 
-          return @titulo <=> other.titulo
+      else
+          return @fecha <=> other.fecha
       end
     end
 end

@@ -13,9 +13,28 @@ class Apa < Lista
       end
       nodes[i].autor=nuevoautor
     end
+    for i in nodes do
+       for j in nodes do
+        if i == j
+          if (i.titulo < j.titulo)
+            a=i.fecha.to_s
+            a+="A"
+            i.fecha=a
+            b=j.fecha.to_s
+            b+="B"
+            j.fecha=b
+          elsif (i.titulo > j.titulo)
+            a=i.fecha.to_s
+            a+="B"
+            i.fecha=a
+            b=j.fecha.to_s
+            b+="A"
+            j.fecha=b            
+          end
+        end
+       end
+    end
     nodes=nodes.sort
-    puts nodes[1]
-    puts "=========="
 
     for i in 0..nodes.length-1 do
       nodes[i]=Node.new(nodes[i],nil,nil)
@@ -104,7 +123,6 @@ class Apa < Lista
       devolver=""
       aux = @cola
       while aux != nil do
-        puts "Estoy aqui por "
         if aux.value.instance_of? Libro
           devolver+=book.call(aux.value)
           devolver+='\n'
