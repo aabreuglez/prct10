@@ -69,12 +69,10 @@ describe Apa do
       expect(@apa8.to_s.split('\n').at(0).split("(").at(0)).to eq("Murakami Haruki ")
 
       expect(@apa8.to_s.split('\n').at(1).split("(").at(0)).to eq("Murakami Haruki & Ruiz Carlos ")
- 
     end
     
     it "Se muestran primero las publicaciones antiguas del mismo autor " do
       expect(@apa9.to_s.split('\n').at(0).split("(").at(1).split(")").at(0)).to eq("2013")
-
       expect(@apa9.to_s.split('\n').at(1).split("(").at(1).split(")").at(0)).to eq("2015")
 
     end
